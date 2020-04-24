@@ -12,21 +12,21 @@ const client = contentful.createClient({
 
 exports.handler = async function(event, context, callback) {
   try {
-    const vuistje = querystring.parse(event.body)
-    vuistje.id = shortid.generate()
+    const meme = querystring.parse(event.body)
+    meme.id = shortid.generate()
 
     const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID)
     const environment = await space.getEnvironment("master")
-    const entry = await environment.createEntryWithId("vuist", vuistje.id, {
+    const entry = await environment.createEntryWithId("meme", meme.id, {
       fields: {
-        to: {
-          "en-US": vuistje.to,
+        person: {
+          "en-US": meme.person,
         },
-        from: {
-          "en-US": vuistje.from,
+        dislike: {
+          "en-US": meme.dislike,
         },
-        message: {
-          "en-US": vuistje.message,
+        like: {
+          "en-US": meme.like,
         },
       },
     })
@@ -36,7 +36,7 @@ exports.handler = async function(event, context, callback) {
       body: JSON.stringify(entry.fields),
       statusCode: 302,
       headers: {
-        Location: `/vuistje/${vuistje.id}`,
+        Location: `/meme/${meme.id}`,
       },
     })
   } catch (err) {

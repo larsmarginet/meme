@@ -7,13 +7,13 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       {
-        allContentfulVuist {
+        allContentfulMeme {
           edges {
             node {
               id: contentful_id
-              to
-              from
-              message 
+              person
+              like
+              dislike 
             }
           }
         }
@@ -25,15 +25,15 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  result.data.allContentfulVuist.edges.forEach(({ node }) => {
+  result.data.allContentfulMeme.edges.forEach(({ node }) => {
     createPage({
-      path: `vuistje/${node.id}`,
-      component: path.resolve(`./src/templates/vuistje.js`),
+      path: `meme/${node.id}`,
+      component: path.resolve(`./src/templates/meme.js`),
       context: {
         id: node.id,
-        from: node.from,
-        to: node.to,
-        message: node.message,
+        person: node.from,
+        like: node.to,
+        dislike: node.message,
       },
     })
   })

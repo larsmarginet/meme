@@ -4,19 +4,19 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Demovuistje`,
-    description: `Een demo om een vuistje te geven`,
-    author: `@devinekask`,
+    title: `Meme`,
+    description: `generate your own meme`,
+    author: `larsmarginet`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `images`,
+    //     path: `${__dirname}/src/images`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-contentful`,
       options: {

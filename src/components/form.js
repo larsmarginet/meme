@@ -1,42 +1,44 @@
-import React from "react"
 
+import React, { useState } from "react"
 import style from "./form.module.css"
 
 const Form = () => {
+  const [person, setPerson] = useState(null)
+
   return (
     <form method="POST" action="/post" className={style.form}>
-      <label htmlFor="to" className={style.wrapper}>
-        <span className={style.label}>Aan:</span>
+      <label htmlFor="person" className={style.wrapper}>
+        <span className={style.label}>Persoon:</span>
         <input
           type="text"
-          id="to"
-          name="to"
-          placeholder="Een vuistje voor..."
+          id="person"
+          name="person"
+          onChange={e => setPerson(e.currentTarget.value)}
+          value={person}
           className={style.text}
         />
       </label>
-      <label htmlFor="message" className={style.wrapper}>
-        <span className={style.label}>Een vuistje omdat:</span>
-        <textarea
-          rows="5"
-          id="message"
-          name="message"
-          className={style.area}
-        ></textarea>
-      </label>
-      <label htmlFor="from" className={style.wrapper}>
-        <span className={style.label}>Van:</span>
+      <label htmlFor="dislike" className={style.wrapper}>
+        <span className={style.label}>Wat vindt {person} niet leuk?</span>
         <input
           type="text"
-          id="from"
-          name="from"
+          id="dislike"
+          name="dislike"
           className={style.text}
-          placeholder="Uw liefste..."
+        />
+      </label>
+      <label htmlFor="like" className={style.wrapper}>
+        <span className={style.label}>Wat vindt {person} leuk?</span>
+        <input
+          type="text"
+          id="like"
+          name="like"
+          className={style.text}
         />
       </label>
       <input
         type="submit"
-        value="Maak een link voor dit vuistje"
+        value="Genereer de meme"
         className={style.button}
       />
     </form>

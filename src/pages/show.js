@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 import Layout from "../components/layout"
 import Content from "../components/content"
 import ShareUrl from "../components/shareUrl"
-import Vuist from "../components/vuist"
+import Meme from "../components/meme"
 import SEO from "../components/seo"
 
 import { useQueryParam, StringParam } from "use-query-params"
@@ -11,7 +11,7 @@ import { useQueryParam, StringParam } from "use-query-params"
 import style from "./show.module.css"
 
 const ShowPage = ({ location }) => {
-  const [vuistje, setVuistje] = useState(null)
+  const [meme, setMeme] = useState(null)
   const [id] = useQueryParam("id", StringParam)
 
   const domain = location.origin ? location.origin : ""
@@ -20,22 +20,22 @@ const ShowPage = ({ location }) => {
     const getData = async () => {
       const r = await fetch(`/.netlify/functions/show?id=${id}`)
       const data = await r.json()
-      setVuistje(data)
+      setMeme(data)
     }
     getData()
   }, [id])
 
   return (
     <Layout>
-      <SEO title="Deel dit vuistje" />
-      {vuistje ? (
+      <SEO title="Deel deze meme" />
+      {meme ? (
         <>
-          <Vuist />
-          <ShareUrl value={`${domain}/vuistje/${id}`} />
-          <Content {...vuistje} />
+          <Meme />
+          <ShareUrl value={`${domain}/meme/${id}`} />
+          <Content {...meme} />
         </>
       ) : (
-        <p className={style.loading}>Vuistje aan het ballen...</p>
+        <p className={style.loading}>Meme aan het genereren...</p>
       )}
     </Layout>
   )
