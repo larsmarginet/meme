@@ -10,10 +10,9 @@ export default ({ pageContext }) => {
   return (
     <Layout>
       <SEO title="Je hebt een meme gekregen" />
-      <Meme />
       <Content {...pageContext} />
       <p className={style.note}>
-        Maak <Link to="/create">hier </Link> je eigen meme
+        Maak <Link to="/create">hier</Link> je eigen meme
       </p>
     </Layout>
   )

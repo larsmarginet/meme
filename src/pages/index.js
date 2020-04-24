@@ -4,12 +4,12 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import style from "./index.module.css"
-import Meme from "../components/meme"
+//import Meme from "../components/meme"
 
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
-    <Meme />
+    {/* <Meme /> */}
     <Link to="/create" className={style.button}>
       maak een meme
     </Link>
