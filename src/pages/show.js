@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react"
 import Layout from "../components/layout"
 import Content from "../components/content"
 import ShareUrl from "../components/shareUrl"
-import Meme from "../components/meme"
 import SEO from "../components/seo"
 
 import { useQueryParam, StringParam } from "use-query-params"
@@ -30,7 +29,6 @@ const ShowPage = ({ location }) => {
       <SEO title="Deel deze meme" />
       {meme ? (
         <>
-          <Meme />
           <ShareUrl value={`${domain}/meme/${id}`} />
           <Content {...meme} />
         </>

@@ -1,9 +1,9 @@
 import React from "react"
-//import style from "./meme.module.css"
+import style from "./meme.module.css"
 
 const Meme = () => {
   return (
-   <p>[HIER KOMT DE MEME]</p>
+   <img className={style.meme} src={`../template.jpg`} alt="meme template" width="800" height="450"/>
   )
 }
 

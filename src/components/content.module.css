@@ -1,20 +1,38 @@
 .container {
-  background-color: var(--primary-color);
-  padding: 2rem;
+  background-image: url('../images/template.jpg');
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(10, 1fr);
   font-size: 1.2rem;
-  border-radius: 0.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  max-width: 40rem;
+  max-height: 22.5rem;
+  width: 100vw;
+  height: 56.5vw;
 }
 
-.message {
-  margin: 2rem 0;
-  font-style: italic;
-  font-size: 1.2em;
+.text {
+  background-color: white;
+  padding: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.from {
-  margin-left: 5vw;
+.like {
+  grid-row: 7/9;
+  grid-column: 2/5;
 }
 
-.from::before {
-  content: "\2014";
+.dislike {
+  grid-row: 7/9;
+  grid-column: 12/15;
 }
+
+.person {
+  grid-row: 5/7;
+  grid-column: 8/11;
+}
+

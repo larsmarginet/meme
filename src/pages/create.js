@@ -8,9 +8,11 @@ import Form from "../components/form"
 
 const CreatePage = () => (
   <Layout>
+    
     <SEO title="Create" />
-    <Form />
     <Meme />
+    <Form />
+    
   </Layout>
 )
 

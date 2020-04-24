@@ -2,10 +2,10 @@
   display: flex;
   flex-flow: column;
   justify-content: space-evenly;
-  align-items: stretch;
+  align-items: center;
   margin: 0 auto;
   width: 90vw;
-  max-width: 60ch;
+  max-width: 80rem;
 }
 
 .footer {
