@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import style from "./form.module.css"
 
 const Form = () => {
-  const [person, setPerson] = useState(null)
+  const [person, setPerson] = useState("")
 
   return (
     <form method="POST" action="/post" className={style.form}>

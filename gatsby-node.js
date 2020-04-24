@@ -12,8 +12,8 @@ exports.createPages = async ({ graphql, actions }) => {
             node {
               id: contentful_id
               person
+              dislike
               like
-              dislike 
             }
           }
         }
@@ -26,14 +26,15 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   result.data.allContentfulMeme.edges.forEach(({ node }) => {
+    console.log(node)
     createPage({
       path: `meme/${node.id}`,
       component: path.resolve(`./src/templates/meme.js`),
       context: {
         id: node.id,
-        person: node.from,
-        like: node.to,
-        dislike: node.message,
+        person: node.person,
+        like: node.like,
+        dislike: node.dislike,
       },
     })
   })

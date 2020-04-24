@@ -1,5 +1,5 @@
 import React from "react"
-import style from "./meme.module.css"
+//import style from "./meme.module.css"
 
 const Meme = () => {
   return (
