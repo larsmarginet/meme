@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import style from "./index.module.css"
 import Meme from "../components/meme"
 
-const IndexPage = ({ data }) => (
+const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <Meme />
